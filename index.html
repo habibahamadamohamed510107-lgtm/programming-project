@@ -1,257 +1,844 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>البرمجة والذكاء الاصطناعي | رحلة التعلم</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>البرمجة والذكاء الاصطناعي</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-:root{--navy:#17294b;--blue:#3977ed;--cyan:#20b9c7;--purple:#8067db;--gold:#f0b94b;--bg:#f4f7fc;--text:#20314f;--muted:#6d7b91;--line:#e4eaf3;--white:#fff;--shadow:0 12px 35px #18355d12}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Cairo,sans-serif;color:var(--text)}button{font:inherit;cursor:pointer;border:0}.hidden{display:none!important}.wrap{width:min(1120px,92%);margin:auto}
-.cover{min-height:100vh;display:grid;place-items:center;padding:28px;background:radial-gradient(circle at 15% 20%,#d8f6f4,transparent 28%),radial-gradient(circle at 85% 80%,#e2e9ff,transparent 32%),linear-gradient(135deg,#f7faff,#edf4ff)}
-.cover-card{width:min(850px,100%);background:#ffffffed;border:1px solid #fff;border-radius:30px;padding:clamp(25px,5vw,55px);text-align:center;box-shadow:0 28px 80px #233e6717;position:relative;overflow:hidden}
-.cover-card:before{content:"</>";position:absolute;left:-5px;top:-25px;font:900 125px monospace;color:#3977ed0b;direction:ltr}
-.logo{width:68px;height:68px;margin:0 auto 18px;border-radius:22px;display:grid;place-items:center;color:white;background:linear-gradient(135deg,var(--blue),var(--cyan));font:900 22px monospace;box-shadow:0 12px 25px #3977ed44;direction:ltr}
-.pill{display:inline-block;background:#edf4ff;color:var(--blue);border-radius:30px;padding:7px 15px;font-size:12px;font-weight:800}
-.cover h1{font-size:clamp(27px,5vw,43px);margin:15px 0 4px;color:var(--navy);font-weight:900}.cover h2{font-size:clamp(19px,3vw,26px);margin:0 0 12px;color:var(--blue)}
-.cover p{color:var(--muted);line-height:2;margin:0 auto 22px;max-width:600px}
-.cover-art{height:115px;margin:5px auto 18px;display:flex;align-items:center;justify-content:center;gap:15px;direction:ltr}
-.chip{width:85px;height:85px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(145deg,#e8f0ff,#e4fbf7);border:1px solid #dce8f5;font-size:34px;box-shadow:var(--shadow)}
-.identity{max-width:530px;margin:22px auto 25px;text-align:right;background:#f8faff;border:1px solid var(--line);border-radius:17px;padding:14px 20px}
-.identity div{padding:6px 0;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e9eef6;font-size:13px}.identity div:last-child{border:0}.identity span{color:var(--muted)}.identity b{text-align:left}
-.btn{padding:12px 22px;border-radius:13px;font-weight:800;background:linear-gradient(110deg,var(--blue),#268fe0);color:white;box-shadow:0 8px 20px #3977ed2b;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn.alt{background:#edf3ff;color:var(--blue);box-shadow:none}.btn.light{background:#fff;color:var(--navy);border:1px solid var(--line);box-shadow:none}
-header{height:70px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 4%;position:sticky;top:0;z-index:10}
-.brand{display:flex;gap:10px;align-items:center;font-weight:900;color:var(--navy);direction:ltr}.brand .mini{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#fff;font:800 16px monospace}
-nav{display:flex;gap:8px}nav button{background:transparent;color:var(--muted);font-size:13px;font-weight:800;padding:9px 12px;border-radius:10px}nav button:hover,nav button.active{background:#edf3ff;color:var(--blue)}
-main{padding:32px 0 65px}.welcome{background:linear-gradient(115deg,#172d55,#244a82);border-radius:25px;color:#fff;padding:30px 34px;display:grid;grid-template-columns:1fr 220px;align-items:center;gap:20px;overflow:hidden;position:relative}.welcome:after{content:"{ AI }";font:900 80px monospace;color:#ffffff12;position:absolute;left:25px;bottom:-7px;direction:ltr}.welcome h1{font-size:clamp(24px,4vw,34px);margin:8px 0}.welcome p{color:#d1def2;line-height:1.9;margin:0 0 18px;font-size:14px}.welcome-art{height:160px;display:grid;place-items:center;position:relative}.brain{width:130px;height:130px;border-radius:40px;background:linear-gradient(145deg,#5f91ff,#20c6c5);display:grid;place-items:center;font-size:43px;box-shadow:0 15px 45px #081b3e66;transform:rotate(-7deg)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:22px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow)}.stat b{display:block;color:var(--blue);font-size:24px}.stat span{font-size:12px;color:var(--muted);font-weight:700}
-.heading{margin:30px 0 18px}.heading small{color:var(--blue);font-weight:900;letter-spacing:1px}.heading h2{margin:3px 0;font-size:26px;color:var(--navy)}.heading p{margin:0;color:var(--muted);font-size:13px}
-.progressbox{background:white;border:1px solid var(--line);border-radius:17px;padding:17px 20px;margin:18px 0}.progressline{height:9px;border-radius:10px;background:#e9eef6;overflow:hidden;margin:10px 0 4px}.progressline i{height:100%;display:block;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:10px;transition:.4s}
-.units{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.unit{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow);transition:.2s}.unit:hover{transform:translateY(-5px)}.unitvisual{height:145px;display:grid;place-items:center;position:relative;overflow:hidden}.unitvisual svg{width:165px;height:130px}.v1{background:linear-gradient(135deg,#e2ecff,#dbeeff)}.v2{background:linear-gradient(135deg,#d9f7f1,#dff5fa)}.v3{background:linear-gradient(135deg,#eee8ff,#e5eaff)}.v4{background:linear-gradient(135deg,#fff0dc,#ffe8e7)}.v5{background:linear-gradient(135deg,#e2f5eb,#e4f1ff)}
-.unitbody{padding:17px}.unitbody small{background:#eef3ff;color:var(--blue);padding:5px 10px;border-radius:20px;font-size:11px;font-weight:900}.unitbody h3{font-size:17px;margin:10px 0 5px}.unitbody p{font-size:12px;line-height:1.8;color:var(--muted);margin:0}.unitfoot{border-top:1px solid var(--line);margin-top:13px;padding-top:11px;display:flex;justify-content:space-between;color:var(--muted);font-size:11px;font-weight:800}
-.pagehead{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:22px}.pagehead h1{font-size:28px;margin:3px 0;color:var(--navy)}.pagehead p{color:var(--muted);font-size:13px;margin:0}.back{background:#eaf1ff;color:var(--blue);border-radius:11px;padding:9px 14px;font-weight:800}
-.lessons{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.lesson{display:flex;align-items:center;gap:14px;padding:16px;background:white;border:1px solid var(--line);border-radius:16px;cursor:pointer;box-shadow:var(--shadow)}.lesson:hover{border-color:#a9c4fa}.lessonpic{width:67px;height:67px;flex:none;border-radius:17px;background:linear-gradient(145deg,#e5efff,#e0f9f5);display:grid;place-items:center;font-size:28px}.lesson h3{font-size:14px;margin:0 0 5px}.lesson p{font-size:11px;line-height:1.7;color:var(--muted);margin:0}.lesson small{display:block;color:var(--blue);font-size:10px;font-weight:900;margin-top:5px}
-.lessonwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:17px}.panel{background:#fff;border:1px solid var(--line);border-radius:19px;padding:23px;box-shadow:var(--shadow)}.panel h2{margin:5px 0 12px;font-size:25px;color:var(--navy)}.panel h3{font-size:17px;margin:24px 0 8px;color:var(--navy)}.panel p,.panel li{font-size:13px;line-height:2.05;color:#56667d}.objectives{background:#f7faff;border:1px solid var(--line);border-radius:15px;padding:16px}.objectives h3{margin:0 0 8px}.objectives li{font-size:12px;color:var(--muted);line-height:1.9;margin:5px 0}.remember{border-right:4px solid var(--gold);background:#fff8e8;padding:15px 17px;border-radius:12px;color:#745a25;font-size:13px;line-height:1.9;margin:16px 0}.video{background:#eef5ff;padding:14px;border-radius:13px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px}.video a{color:var(--blue);font-weight:900;text-decoration:none}
-.gamebox,.quizbox{background:#f6f8fc;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:18px}.gamebox h3,.quizbox h3{margin:0 0 10px}.question{font-weight:800;font-size:14px;line-height:1.9}.options{display:grid;gap:8px;margin-top:12px}.option{background:white;border:1px solid #dfe7f1;border-radius:11px;text-align:right;padding:10px 13px;font-size:12px;color:var(--text)}.option:hover{border-color:var(--blue)}.option.good{background:#e8f8ef;border-color:#58c58a;color:#137346}.option.bad{background:#fff0ee;border-color:#f29b8d;color:#ad4035}.feedback{min-height:26px;font-size:12px;font-weight:800;margin:10px 0}.sidepanel{height:max-content}.sidepanel .btn{width:100%;margin-top:9px}.code{direction:ltr;text-align:left;background:#17294b;color:#a9f3df;border-radius:12px;padding:15px;font:12px/1.9 monospace;white-space:pre-wrap}
-.achievements{display:grid;grid-template-columns:1fr 1fr;gap:16px}.achievement{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.achievement h3{margin:0 0 8px}.achievement p{font-size:13px;line-height:1.9;color:var(--muted)}.bigcount{font-size:32px;color:var(--blue);font-weight:900}.locked{opacity:.7;background:#f8f9fc}.certificate{background:white;border:9px double #d5b96f;border-radius:12px;text-align:center;padding:42px 25px;max-width:800px;margin:15px auto;box-shadow:var(--shadow)}.certificate h1{font-size:35px;color:#203e70;margin:8px}.certificate h2{font-size:28px;color:var(--blue)}.certificate p{line-height:2;color:var(--muted)}.certname{font-size:30px;font-weight:900;color:#203e70;margin:18px}
-.toast{position:fixed;bottom:18px;left:18px;background:#17294b;color:white;padding:12px 17px;border-radius:12px;display:none;z-index:40;font-size:12px}
-footer{text-align:center;padding:25px;color:var(--muted);font-size:11px;border-top:1px solid var(--line)}
-@media(max-width:800px){.units{grid-template-columns:repeat(2,1fr)}.lessonwrap{grid-template-columns:1fr}.welcome{grid-template-columns:1fr}.welcome-art{display:none}.achievements{grid-template-columns:1fr}}
-@media(max-width:560px){header{height:auto;min-height:65px;flex-wrap:wrap;padding:10px 4%}.brand{font-size:14px}nav{width:100%;justify-content:space-between}nav button{font-size:11px;padding:7px}.units,.lessons{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:10px}.stat b{font-size:19px}.stat span{font-size:10px}.welcome{padding:23px}.pagehead{align-items:flex-start}.pagehead h1{font-size:23px}.panel{padding:17px}.identity div{display:block}.identity b{display:block;text-align:right}.cover-card{padding:25px 17px}}
-@media print{header,footer,.back,.btn,.toast{display:none!important}body{background:white}.certificate{box-shadow:none;margin:0 auto}}
-/* --- Visual refinement: cohesive, polished educational identity --- */
+
 :root{
-  --navy:#172b50; --blue:#4169e8; --cyan:#24b8bd; --purple:#7665d8;
-  --gold:#e9b957; --bg:#f5f7fc; --text:#243552; --muted:#71809a;
-  --line:#e5eaf4; --white:#fff; --shadow:0 14px 34px rgba(28,49,91,.075);
+ --primary:#3157a4;
+ --secondary:#6386d5;
+ --light:#edf3ff;
+ --dark:#172b50;
+ --text:#35445e;
+ --muted:#77849a;
+ --white:#fff;
+ --green:#21966b;
+ --red:#d85b67;
+ --shadow:0 10px 35px rgba(38,68,120,.10);
 }
-body{background:linear-gradient(180deg,#f8faff 0%,#f3f6fc 100%);font-family:Cairo,"Tahoma",sans-serif}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Cairo',sans-serif;
+ background:#f5f7fc;
+ color:var(--text);
+}
+button,input{font-family:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
 .cover{
-  background:
-    radial-gradient(ellipse at 12% 14%,rgba(53,190,190,.18),transparent 30%),
-    radial-gradient(ellipse at 88% 82%,rgba(93,116,232,.18),transparent 34%),
-    linear-gradient(135deg,#f8faff 0%,#edf2ff 52%,#f7f9ff 100%);
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:25px;
+ background:linear-gradient(135deg,#152d59,#315ba9 60%,#8ba8e5);
 }
 .cover-card{
-  border:1px solid rgba(255,255,255,.9);
-  background:rgba(255,255,255,.91);
-  box-shadow:0 30px 90px rgba(35,58,105,.13);
-  backdrop-filter:blur(10px);
+ width:100%;
+ max-width:850px;
+ background:white;
+ border-radius:28px;
+ padding:45px 35px;
+ text-align:center;
+ box-shadow:0 25px 70px #10265055;
 }
-.logo,.brand .mini{background:linear-gradient(135deg,#4568e8 0%,#25b9bd 100%)}
-.pill{background:#edf1ff;color:#4568d9;letter-spacing:.1px}
-.cover h1{letter-spacing:-.5px}
-.cover h2{color:#536fe0}
-.cover-art .chip{
-  background:linear-gradient(145deg,#f0f4ff,#e7fbf8);
-  border:1px solid #e0e8f7;
-  box-shadow:0 12px 28px rgba(45,78,140,.09);
+.cover-icon{
+ width:85px;height:85px;
+ display:grid;place-items:center;
+ margin:0 auto 18px;
+ border-radius:25px;
+ background:#edf3ff;
+ font-size:42px;
 }
-.identity{
-  max-width:560px;
-  background:linear-gradient(135deg,#f8faff,#f1f6ff);
-  border:1px solid #e3eaf7;
-  box-shadow:inset 0 1px 0 #fff;
+.cover h1{
+ color:var(--dark);
+ font-size:clamp(27px,5vw,43px);
+ margin:10px 0;
 }
-.identity div{
-  justify-content:flex-start;
-  align-items:center;
-  gap:12px;
-  padding:8px 2px;
+.cover-subtitle{color:#75839b;margin-bottom:25px}
+.project-info{
+ background:#f4f7ff;
+ border-radius:18px;
+ padding:20px;
+ line-height:2.2;
+ margin:25px 0;
+ text-align:right;
 }
-.identity span{
-  flex:0 0 112px;
-  color:#63728c;
-  font-weight:700;
+.project-info strong{color:var(--primary)}
+.cover-form{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+ max-width:600px;
+ margin:20px auto 0;
 }
-.identity b{
-  text-align:right;
-  color:#263b61;
-  font-weight:800;
+.cover-form input{
+ width:100%;
+ border:1px solid #dce4f2;
+ background:#fff;
+ border-radius:12px;
+ padding:14px;
+ font-size:15px;
+ outline:none;
 }
+.cover-form input:focus{border-color:var(--secondary)}
 .btn{
-  background:linear-gradient(110deg,#4568e8,#278fc9);
-  box-shadow:0 9px 22px rgba(65,105,232,.22);
+ border:0;
+ border-radius:12px;
+ padding:12px 20px;
+ font-size:15px;
+ font-weight:700;
+ transition:.2s;
 }
-.btn:hover{box-shadow:0 13px 27px rgba(65,105,232,.28)}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:var(--primary);color:white}
+.secondary{background:#e9efff;color:var(--primary)}
+.success{background:#e5f6ef;color:#16835b}
+.soft{background:#f1f3f8;color:#59677e}
+.danger{background:#fff0f0;color:#c34d5a}
+.full{width:100%}
+.start-btn{grid-column:1/-1;padding:15px;font-size:17px}
 header{
-  box-shadow:0 4px 18px rgba(30,52,91,.035);
-  border-bottom-color:#e8edf6;
+ background:white;
+ box-shadow:0 3px 20px #1a37600c;
+ position:sticky;
+ top:0;
+ z-index:10;
 }
+.nav{
+ max-width:1150px;
+ margin:auto;
+ padding:12px 20px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ flex-wrap:wrap;
+}
+.brand{font-weight:900;color:var(--primary);font-size:19px}
+.nav-actions{display:flex;gap:7px;flex-wrap:wrap}
+.nav-actions button{padding:9px 13px;font-size:13px}
+.wrap{max-width:1150px;margin:30px auto;padding:0 20px}
 .welcome{
-  background:linear-gradient(112deg,#192e57 0%,#294b82 58%,#346e91 100%);
-  box-shadow:0 18px 38px rgba(24,48,91,.13);
+ background:linear-gradient(120deg,#244785,#547bd0);
+ border-radius:23px;
+ color:white;
+ padding:28px;
+ margin-bottom:22px;
+ position:relative;
+ overflow:hidden;
 }
-.welcome .brain{
-  background:linear-gradient(145deg,#7094ff,#29c4c0);
-  border:1px solid rgba(255,255,255,.22);
+.welcome h1{margin:0 0 7px;font-size:27px}
+.welcome p{margin:0;color:#e0eaff}
+.stats{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
+ margin-bottom:25px;
 }
-.stat,.unit,.lesson,.panel,.achievement,.progressbox{
-  box-shadow:0 10px 28px rgba(29,53,94,.055);
-  border-color:#e7ecf5;
+.stat{
+ background:white;
+ padding:20px;
+ border-radius:17px;
+ box-shadow:var(--shadow);
 }
-.stat{transition:transform .2s ease,box-shadow .2s ease}
-.stat:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(29,53,94,.09)}
-.heading h2,.pagehead h1,.panel h2,.panel h3{letter-spacing:-.2px}
-.unit{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
-.unit:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(35,61,111,.11);border-color:#d5def4}
-.unitbody small{background:#eef2ff;color:#526cda}
-.lesson{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.lesson:hover{transform:translateY(-2px);box-shadow:0 13px 27px rgba(29,53,94,.08)}
-.lessonpic{background:linear-gradient(145deg,#edf2ff,#e6f8f6)}
-.back{background:#edf1ff;color:#4d68d7}
-.progressline i{background:linear-gradient(90deg,#4c6fe9,#24b9bd)}
-.objectives{background:linear-gradient(135deg,#f8faff,#f0f5ff)}
-.remember{background:linear-gradient(110deg,#fff9e9,#fff5df)}
-.gamebox,.quizbox{background:linear-gradient(135deg,#f8faff,#f2f6fc)}
+.stat-icon{font-size:25px}
+.stat strong{display:block;color:var(--dark);font-size:25px}
+.stat small{color:var(--muted)}
+.section-title{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ margin:25px 0 15px;
+}
+.section-title h2{margin:0;color:var(--dark);font-size:21px}
+.progress-box{
+ background:white;
+ border-radius:17px;
+ padding:20px;
+ margin-bottom:22px;
+ box-shadow:var(--shadow);
+}
+.progress-top{display:flex;justify-content:space-between;margin-bottom:10px}
+.progress-track{
+ height:12px;
+ background:#e9edf5;
+ border-radius:20px;
+ overflow:hidden;
+}
+.progress-fill{
+ height:100%;
+ width:0%;
+ background:linear-gradient(90deg,#3157a4,#80a1ed);
+ border-radius:20px;
+ transition:.4s;
+}
+.units{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+ gap:17px;
+}
+.unit-card{
+ background:white;
+ border-radius:19px;
+ padding:22px;
+ box-shadow:var(--shadow);
+ border:1px solid #edf0f7;
+ transition:.2s;
+ cursor:pointer;
+}
+.unit-card:hover{transform:translateY(-4px)}
+.unit-number{
+ width:43px;height:43px;
+ display:grid;place-items:center;
+ background:#edf3ff;
+ color:var(--primary);
+ border-radius:13px;
+ font-weight:900;
+}
+.unit-card h3{color:var(--dark);margin:14px 0 5px}
+.unit-card p{font-size:13px;color:var(--muted)}
+.unit-progress{
+ height:7px;
+ background:#edf0f6;
+ border-radius:20px;
+ margin-top:15px;
+ overflow:hidden;
+}
+.unit-progress div{
+ height:100%;
+ background:#5279ca;
+}
+.lesson-list{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+ gap:14px;
+}
+.lesson-card{
+ background:white;
+ border-radius:15px;
+ padding:18px;
+ box-shadow:var(--shadow);
+ cursor:pointer;
+ border:1px solid #edf0f7;
+}
+.lesson-card:hover{border-color:#91a9df}
+.lesson-card h3{font-size:16px;color:var(--dark);margin:0 0 8px}
+.lesson-card p{font-size:13px;color:var(--muted);margin:0}
+.lesson-status{margin-top:12px;font-size:12px;font-weight:700;color:var(--green)}
+article{
+ background:white;
+ border-radius:20px;
+ padding:25px;
+ box-shadow:var(--shadow);
+}
+.breadcrumb{margin-bottom:20px}
+.eyebrow{color:var(--secondary);font-size:13px;font-weight:800}
+article h1{color:var(--dark);font-size:27px;margin:8px 0 20px}
+.info-box{
+ background:#f5f8ff;
+ border-right:4px solid #6687cf;
+ padding:18px;
+ border-radius:12px;
+ margin:15px 0;
+ line-height:2;
+}
+.info-box h3{margin:0 0 8px;color:var(--dark)}
+.info-box p{margin:5px 0}
+.remember{background:#effaf6;border-color:#36a67b}
+.video{background:#fff7ed;border-color:#e6a04b}
+.objectives{background:#f4f1ff;border-color:#9378cf}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.quiz-question{
+ background:#f7f9fe;
+ border:1px solid #e8edf7;
+ padding:18px;
+ border-radius:15px;
+ margin:15px 0;
+}
+.quiz-question h3{font-size:16px;color:var(--dark)}
+.option{
+ display:flex;
+ gap:10px;
+ align-items:center;
+ padding:11px;
+ background:white;
+ border:1px solid #e5eaf3;
+ border-radius:10px;
+ margin:8px 0;
+ cursor:pointer;
+}
+.option:has(input:checked){border-color:#6687cf;background:#edf3ff}
+.feedback{font-weight:700;font-size:13px;margin-top:8px}
+.result-card{
+ text-align:center;
+ padding:25px;
+ background:#edf5ff;
+ border-radius:18px;
+ margin-top:20px;
+}
+.result-score{font-size:38px;color:var(--primary);font-weight:900}
+.achievement-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:15px;
+}
+.achievement{
+ background:white;
+ text-align:center;
+ padding:25px 15px;
+ border-radius:17px;
+ box-shadow:var(--shadow);
+}
+.achievement span{font-size:35px}
+.achievement h3{color:var(--dark);font-size:16px}
+.achievement p{font-size:12px;color:var(--muted)}
 .certificate{
-  background:
-    radial-gradient(circle at 50% 0%,rgba(233,185,87,.10),transparent 36%),
-    #fff;
-  border-color:#d8bd78;
-  box-shadow:0 18px 45px rgba(50,55,70,.08);
+ background:white;
+ border:9px double #bd9b49;
+ padding:35px 25px;
+ text-align:center;
+ border-radius:10px;
+ max-width:850px;
+ margin:20px auto;
 }
-footer{background:rgba(255,255,255,.45)}
-@media(max-width:560px){
-  .identity div{display:flex;align-items:flex-start;gap:9px}
-  .identity span{flex:0 0 94px}
-  .identity b{display:block;text-align:right;overflow-wrap:anywhere}
-  .cover-art{gap:9px}
-  .chip{width:70px;height:70px}
+.certificate h1{color:#24477f;font-size:35px}
+.certificate .student-name{
+ color:#b28b32;
+ font-size:30px;
+ font-weight:900;
+ border-bottom:2px solid #d6c18a;
+ display:inline-block;
+ padding:5px 30px;
+}
+.certificate p{line-height:2}
+.certificate-footer{
+ display:flex;
+ justify-content:space-around;
+ gap:15px;
+ margin-top:40px;
+ flex-wrap:wrap;
+}
+footer{
+ text-align:center;
+ color:#8a95a8;
+ font-size:12px;
+ padding:25px;
+}
+.empty{
+ background:white;
+ padding:35px;
+ text-align:center;
+ border-radius:18px;
+}
+@media(max-width:650px){
+ .cover-card{padding:30px 18px}
+ .cover-form{grid-template-columns:1fr}
+ .start-btn{grid-column:auto}
+ .stats{grid-template-columns:1fr}
+ .nav{justify-content:center}
+ .nav-actions{justify-content:center}
+ .welcome h1{font-size:22px}
+ article{padding:17px}
+ article h1{font-size:22px}
+}
+@media print{
+ body{background:white}
+ header,footer,.no-print,.breadcrumb{display:none!important}
+ .wrap{max-width:100%;margin:0;padding:0}
+ .certificate{box-shadow:none;margin:20px auto}
 }
 </style>
 </head>
 <body>
-<section id="cover" class="cover">
+
+<section class="cover" id="cover">
  <div class="cover-card">
-  <div class="logo">&lt;/&gt;</div><span class="pill">🎓 مشروع تعليمي تفاعلي</span>
-  <h1>مرحباً بك في رحلتنا التعليمية</h1><h2>البرمجة والذكاء الاصطناعي</h2>
-  <p>تعلّم، اكتشف، جرّب، وابتكر. رحلة تفاعلية تأخذك خطوة بخطوة إلى عالم البرمجة وتقنيات الذكاء الاصطناعي.</p>
-  <div class="cover-art"><div class="chip">⌨️</div><div class="chip">🤖</div><div class="chip">✦</div></div>
-  <div class="identity">
-   <div><span>إعداد الطالبة</span><b>حبيبه حماده محمد عفيفي</b></div>
-   <div><span>الكلية</span><b>كلية التربية النوعية</b></div>
-   <div><span>الجامعة</span><b>جامعة المنوفية</b></div>
-   <div><span>الشعبة</span><b>تكنولوجيا التعليم والمعلومات</b></div>
-   <div><span>تحت إشراف</span><b>د. أرشد</b></div>
+  <div class="cover-icon">💻</div>
+  <h1>البرمجة والذكاء الاصطناعي</h1>
+  <p class="cover-subtitle">رحلتك التعليمية نحو عالم التكنولوجيا والابتكار</p>
+
+  <div class="project-info">
+   <div><strong>إعداد الطالبة:</strong> حبيبة حماده محمد عفيفي</div>
+   <div><strong>الكلية:</strong> كلية التربية النوعية</div>
+   <div><strong>الجامعة:</strong> جامعة المنوفية</div>
+   <div><strong>الشعبة:</strong> تكنولوجيا التعليم والمعلومات</div>
+   <div><strong>تحت إشراف:</strong> د. أرشد صلاح</div>
   </div>
-  <button class="btn" onclick="enterSite()">ابدأ الرحلة التعليمية ←</button>
+
+  <h3 style="color:#263e68">ابدأ رحلتك التعليمية الآن</h3>
+  <div class="cover-form">
+   <input id="studentName" placeholder="اكتب اسم الطالب">
+   <input id="studentGrade" placeholder="اكتب الصف الدراسي">
+   <button class="btn primary start-btn" onclick="enterSite()">🚀 ابدأ التعلم</button>
+  </div>
  </div>
 </section>
-<div id="site" class="hidden">
-<header><div class="brand"><div class="mini">&lt;/&gt;</div><div>البرمجة والذكاء الاصطناعي<small style="display:block;font-size:9px;color:#7a8aa2;font-weight:600">رحلة التعلم</small></div></div>
-<nav><button id="navHome" onclick="showHome()">الرئيسية</button><button id="navUnits" onclick="showHome()">الوحدات</button><button id="navAch" onclick="showAchievements()">الإنجازات 🏆</button></nav></header>
-<main class="wrap">
-<section id="homeView">
- <div class="welcome"><div><span class="pill" style="background:#ffffff1b;color:#d8e8ff">✦ اكتشف عالم التكنولوجيا</span><h1>البرمجة والذكاء الاصطناعي</h1><p>تعلم، اكتشف، جرب، وابتكر. رحلتك نحو المستقبل تبدأ من هنا.</p><button class="btn" onclick="document.getElementById('unitArea').scrollIntoView({behavior:'smooth'})">استكشف الوحدات</button> <button class="btn alt" onclick="showCover()">الصفحة السابقة</button></div><div class="welcome-art"><div class="brain"> { AI } </div></div></div>
- <div class="stats"><div class="stat"><b>5</b><span>وحدات تعليمية</span></div><div class="stat"><b>18</b><span>درساً تفاعلياً</span></div><div class="stat"><b>180</b><span>سؤالاً تعليمياً</span></div></div>
- <div id="unitArea"><div class="heading"><small>مسار التعلم</small><h2>رحلتك في عالم البرمجة</h2><p>اختاري الوحدة التي تريدين البدء بها واكتشفي دروسها.</p></div>
- <div class="progressbox"><b>إنجازك في المنهج</b><span id="progressText" style="float:left;color:var(--blue);font-size:12px;font-weight:800">أكملتِ 0 من 18 درساً</span><div class="progressline"><i id="progressBar"></i></div><small id="progressPercent" style="color:var(--muted)">0%</small></div>
- <div class="units" id="unitCards"></div></div>
-</section>
-<section id="lessonsView" class="hidden">
- <div class="pagehead"><div><small id="unitLabel" style="color:var(--blue);font-weight:900"></small><h1 id="unitTitle"></h1><p id="unitDescription"></p></div><button class="back" onclick="showHome()">→ العودة إلى الوحدات</button></div>
- <div class="lessons" id="lessonCards"></div>
-</section>
-<section id="lessonView" class="hidden">
- <div class="pagehead"><div><small id="lessonLabel" style="color:var(--blue);font-weight:900"></small><h1 id="lessonTitle"></h1></div><button class="back" onclick="showLessons(activeUnit)">→ العودة إلى الدروس</button></div>
- <div class="lessonwrap"><article class="panel" id="lessonArticle"></article><aside class="panel sidepanel"><div class="objectives"><h3>🎯 أهداف الدرس</h3><ul id="objectiveList"></ul></div><h3>📌 إنجاز الدرس</h3><p style="font-size:12px;color:var(--muted);line-height:1.8">بعد قراءة الشرح وتجربة اللعبة والإجابة عن الاختبار، اضغطي على إتمام الدرس لتسجيل إنجازك.</p><button class="btn" onclick="completeLesson()">✓ إتمام الدرس</button><button class="btn alt" onclick="startTest()">📝 ابدأ اختبار الدرس</button></aside></div>
-</section>
-<section id="testView" class="hidden">
- <div class="pagehead"><div><small style="color:var(--blue);font-weight:900">اختبار تفاعلي</small><h1>اختبر معلوماتك</h1><p id="testCounter">السؤال 1 من 10</p></div><button class="back" onclick="showLesson(activeUnit,activeLesson)">العودة للدرس</button></div>
- <div class="panel quizbox" id="testBox"></div>
-</section>
-<section id="achView" class="hidden">
- <div class="heading"><small>إنجازاتك</small><h2>رحلتك نحو النجاح 🏆</h2><p>تابعي تقدمك في جميع وحدات المنهج.</p></div>
- <div class="achievements"><div class="achievement"><div class="bigcount" id="doneCount">0 / 18</div><h3>الدروس المكتملة</h3><p id="doneMessage">ابدئي أول درس لتحققي إنجازك الأول.</p><div class="progressline"><i id="achBar"></i></div></div>
- <div class="achievement locked" id="certLock"><div style="font-size:30px">🔒</div><h3>شهادة إتمام المنهج</h3><p>أكملي جميع الدروس الثمانية عشر للحصول على شهادتك.</p><button class="btn alt" disabled>عرض شهادة التقدير</button></div></div>
-</section>
-<section id="certView" class="hidden">
- <div class="certificate"><div style="font-size:42px;color:#c5a24f">✦</div><small style="letter-spacing:3px;color:#ad914e;font-weight:900">CERTIFICATE OF ACHIEVEMENT</small><h1>شهادة تقدير</h1><h2>Certificate of Achievement</h2><p>تُمنح هذه الشهادة إلى الطالب / الطالبة</p><div class="certname" id="certificateName">حبيبه حماده محمد عفيفي</div><p>تقديراً لإتمام جميع دروس منهج</p><h2>البرمجة والذكاء الاصطناعي</h2><p>بنجاح واجتياز الأنشطة والاختبارات التعليمية.</p><p style="margin-top:25px">تحت إشراف<br><b style="color:var(--navy)">د. أرشد</b></p><p>جامعة المنوفية – كلية التربية النوعية</p><p id="certDate"></p></div><div style="text-align:center"><button class="btn" onclick="window.print()">🖨 طباعة الشهادة</button> <button class="btn alt" onclick="showAchievements()">العودة للإنجازات</button></div>
-</section>
-</main><footer>© 2026 البرمجة والذكاء الاصطناعي<br>مشروع تعليمي تفاعلي - كلية التربية النوعية - جامعة المنوفية</footer>
-</div><div id="toast" class="toast"></div>
+
+<header id="header" class="hidden">
+ <div class="nav">
+  <div class="brand">💻 البرمجة والذكاء الاصطناعي</div>
+  <div class="nav-actions">
+   <button class="btn soft" onclick="showHome()">الرئيسية</button>
+   <button class="btn soft" onclick="showAchievements()">إنجازاتي</button>
+   <button class="btn soft" onclick="showCertificate()">الشهادة</button>
+  </div>
+ </div>
+</header>
+
+<main id="app" class="hidden">
+ <div class="wrap" id="view"></div>
+</main>
+
+<footer id="footer" class="hidden">
+ © 2026 البرمجة والذكاء الاصطناعي | كلية التربية النوعية - جامعة المنوفية
+</footer>
+
 <script>
-const course=[
-{title:"الوحدة الأولى: مدخل إلى عالم البرمجة",desc:"تعرّف على مفهوم البرمجة وأهميتها وكيفية التفكير لحل المشكلات.",color:"v1",icon:"💻",lessons:[
-["مفهوم البرمجة وأهميتها","تعرف البرمجة بأنها كتابة تعليمات وأوامر منظمة للحاسوب حتى ينفذ مهمة محددة. نستخدمها في التطبيقات والألعاب والمواقع والأجهزة الذكية. تعلم البرمجة ينمي التفكير المنطقي والإبداع والقدرة على حل المشكلات.", "أن يعرّف الطالب البرمجة؛ أن يذكر استخداماتها؛ أن يوضح أهميتها في الحياة اليومية.","البرمجة ليست مجرد كتابة أكواد؛ إنها طريقة لتحويل فكرة أو مشكلة إلى خطوات واضحة يمكن للحاسوب تنفيذها.","تطبيق الهاتف الذي تستخدمه يوميًا صممه مبرمجون باستخدام لغات وأدوات برمجية."],
-["تطور لغات البرمجة","بدأت البرمجة بتعليمات منخفضة المستوى قريبة من لغة الآلة، ثم ظهرت لغات أسهل وأكثر قربًا إلى الإنسان. تطورت اللغات لتناسب مجالات متعددة مثل تطوير المواقع والتطبيقات والألعاب وتحليل البيانات.", "أن يتعرف مراحل تطور اللغات؛ أن يميز بين مستويات اللغات؛ أن يذكر أمثلة للغات حديثة.","تطورت لغات البرمجة لتجعل كتابة البرامج وفهمها وصيانتها أسهل.","Python وJavaScript وJava أمثلة على لغات تستخدم في مجالات مختلفة."],
-["الخوارزميات وحل المشكلات","الخوارزمية مجموعة خطوات منطقية مرتبة ومحددة لحل مشكلة أو تنفيذ مهمة. تبدأ بفهم المشكلة وتحديد المدخلات والمخرجات، ثم تصميم الخطوات واختبارها للتأكد من صحتها.", "أن يعرّف الخوارزمية؛ أن يرتب خطوات حل مشكلة؛ أن يحدد المدخلات والمخرجات.","الخوارزمية الجيدة واضحة ومحددة ولها بداية ونهاية وتؤدي إلى نتيجة.","وصفة إعداد الطعام خوارزمية يومية؛ فكل خطوة تعتمد على ترتيب صحيح."],
-["مخططات الانسياب","مخطط الانسياب تمثيل رسومي للخوارزمية باستخدام رموز متعارف عليها. يوضح تسلسل الخطوات ونقاط اتخاذ القرار، ويساعد على فهم الحل قبل تحويله إلى كود.", "أن يشرح فائدة مخطط الانسياب؛ أن يتعرف الرموز الأساسية؛ أن يقرأ تسلسلًا بسيطًا.","الشكل البيضاوي للبداية والنهاية، والمستطيل للمعالجة، والمعين لاتخاذ القرار.","يمكن رسم مخطط يحدد هل درجة الطالب تحقق النجاح أم لا."]]},
-{title:"الوحدة الثانية: أساسيات البرمجة",desc:"اكتشف المتغيرات وأنواع البيانات والعمليات والجمل الشرطية والتكرار.",color:"v2",icon:"⌨️",lessons:[
-["لغات البرمجة وبيئات التطوير","لغة البرمجة وسيلة لكتابة أوامر يفهمها الحاسوب. وتوفر بيئات التطوير أدوات لكتابة الكود وتشغيله واكتشاف الأخطاء. تختلف اللغات بحسب طبيعة المشروع؛ فـ Python مناسبة للتعلم وتحليل البيانات، وJavaScript لتفاعلية الويب.", "أن يوضح معنى لغة البرمجة؛ أن يذكر أمثلة للغات؛ أن يشرح وظيفة بيئة التطوير.","اختيار اللغة يرتبط بهدف المشروع، ولا توجد لغة واحدة هي الأفضل لكل الاستخدامات.","يستخدم الطالب محرر الأكواد لكتابة برنامج صغير وتشغيله ومراجعة نتيجته."],
-["المتغيرات والثوابت","المتغير مساحة مسماة في الذاكرة تخزن قيمة يمكن تغييرها أثناء تنفيذ البرنامج. أما الثابت فقيمة لا يفترض تغييرها خلال سير البرنامج. تساعد الأسماء الواضحة على تنظيم الكود وفهمه.", "أن يعرّف المتغير والثابت؛ أن يميز بينهما؛ أن يكتب أمثلة على القيم المخزنة.","المتغير مثل صندوق يحمل اسمًا ونضع بداخله قيمة نحتاج إليها.","يمكن تخزين اسم الطالب ودرجته في متغيرين ثم عرضهما على الشاشة."],
-["أنواع البيانات","تحدد أنواع البيانات طبيعة القيم التي يتعامل معها البرنامج. من أشهرها الأعداد الصحيحة والعشرية والنصوص والقيم المنطقية. اختيار النوع المناسب يساعد على تنفيذ العمليات بصورة صحيحة.", "أن يعدد أنواع البيانات؛ أن يصنف أمثلة؛ أن يختار النوع المناسب لقيمة.","النص يختلف عن الرقم؛ فالرقم يمكن إجراء عمليات حسابية عليه بينما النص يعامل كسلسلة أحرف.","العمر عدد صحيح، ومتوسط الدرجات قد يكون عددًا عشريًا، واسم الطالب نص."],
-["العمليات والجمل الشرطية والتكرار","تستخدم العمليات الحسابية للمقارنة والحساب. وتسمح الجمل الشرطية باتخاذ قرار وفق تحقق شرط، بينما تنفذ الحلقات التكرارية أوامر عدة مرات دون إعادة كتابتها.", "أن يميز العمليات الحسابية والمنطقية؛ أن يشرح الشرط؛ أن يوضح فائدة التكرار.","الشرط يساعد البرنامج على الاختيار، والتكرار يساعده على تنفيذ المهمة مرات متعددة.","إذا كانت الدرجة 50 فأكثر تظهر رسالة نجاح، ويمكن تكرار ذلك لكل طالب داخل حلقة."]]},
-{title:"الوحدة الثالثة: تطوير الويب والتطبيقات",desc:"تعرف كيف تعمل صفحات الويب، وما دور HTML وCSS وJavaScript.",color:"v3",icon:"🌐",lessons:[
-["مفهوم الإنترنت والويب","الإنترنت شبكة عالمية تربط الأجهزة، أما الويب فهو خدمة تعمل عبر الإنترنت وتتيح تصفح صفحات ومواقع مترابطة. نصل إلى المواقع باستخدام متصفح الويب وعنوان الصفحة.", "أن يفرق بين الإنترنت والويب؛ أن يوضح دور المتصفح؛ أن يشرح فكرة الموقع.","الإنترنت هو البنية التي تربط الأجهزة، والويب إحدى الخدمات التي تعمل فوقها.","عند فتح موقع تعليمي من المتصفح يطلب الجهاز الصفحة من خادم ويب."],
-["بناء صفحات الويب باستخدام HTML","HTML لغة ترميز تحدد بنية محتوى صفحة الويب، مثل العناوين والفقرات والصور والروابط. تستخدم العناصر والوسوم لوصف أجزاء الصفحة وترتيبها.", "أن يوضح وظيفة HTML؛ أن يتعرف الوسوم؛ أن يحدد بنية صفحة بسيطة.","HTML تبني هيكل الصفحة ولا تعد وحدها مسؤولة عن كل تفاصيل التصميم والتفاعل.","وسم العنوان h1 يحدد عنوانًا رئيسيًا، ووسم p يضيف فقرة نصية."],
-["تنسيق الصفحات والتفاعل","تستخدم CSS لتنسيق الألوان والخطوط والمسافات وتخطيط العناصر، بينما تضيف JavaScript التفاعل والاستجابة لأحداث المستخدم مثل الضغط على زر أو التحقق من نموذج.", "أن يميز دور CSS وJavaScript؛ أن يذكر أمثلة للتفاعل؛ أن يشرح تكامل التقنيات.","HTML للبنية، CSS للمظهر، JavaScript للسلوك والتفاعل.","يمكن تغيير لون زر باستخدام CSS، وجعله يعرض رسالة عند الضغط باستخدام JavaScript."]]},
-{title:"الوحدة الرابعة: الذكاء الاصطناعي وتعلم الآلة",desc:"افهم الذكاء الاصطناعي والبيانات والتعلم الآلي والتطبيقات الذكية.",color:"v4",icon:"🤖",lessons:[
-["مفهوم الذكاء الاصطناعي","الذكاء الاصطناعي مجال من علوم الحاسوب يهتم ببناء أنظمة تؤدي مهام تتطلب عادة قدرات مثل فهم اللغة والتعرف على الصور واكتشاف الأنماط والتنبؤ. لا يعني ذلك أن الآلة تمتلك وعيًا أو مشاعر بشرية.", "أن يعرّف الذكاء الاصطناعي؛ أن يذكر قدرات الأنظمة الذكية؛ أن يفرق بين النظام والإنسان.","الذكاء الاصطناعي نظام حاسوبي يعالج البيانات وينتج مخرجات، وقد يخطئ ويحتاج مراجعة.","المساعدات الصوتية وأنظمة اقتراح المحتوى أمثلة على تطبيقات تستخدم تقنيات ذكية."],
-["مجالات وتطبيقات الذكاء الاصطناعي","يدخل الذكاء الاصطناعي في التعليم والطب والزراعة والنقل والصناعة والترفيه. يمكنه المساعدة في تحليل الصور الطبية، وتخصيص التعلم، والتنبؤ بالطلب، وتحسين مسارات النقل.", "أن يعدد مجالات الاستخدام؛ أن يربط التطبيق بمجاله؛ أن يوضح أثره في المجتمع.","تزداد فائدة الذكاء الاصطناعي عندما يستخدم لحل مشكلة حقيقية مع إشراف بشري مناسب.","قد يقترح نظام تعليمي تدريبات إضافية وفق مستوى أداء المتعلم."],
-["تعلم الآلة والبيانات","تعلم الآلة فرع من الذكاء الاصطناعي يجعل النظام يتعلم أنماطًا من البيانات والأمثلة. يمر العمل عادة بجمع البيانات وتنظيفها وتدريب النموذج ثم اختباره وتقييم أدائه.", "أن يشرح تعلم الآلة؛ أن يوضح دور البيانات؛ أن يرتب مراحل تدريب النموذج.","جودة البيانات وتنوعها يؤثران في جودة النتائج التي يتعلمها النموذج.","يمكن تدريب نموذج على صور مصنفة ليتعلم التمييز بين أنواع من النباتات."],
-["التعلم العميق والشبكات العصبية","التعلم العميق مجال ضمن تعلم الآلة يستخدم شبكات عصبية اصطناعية متعددة الطبقات لاكتشاف أنماط معقدة. يستخدم في التعرف على الصور والصوت واللغة، ويحتاج عادة إلى بيانات وقدرة حاسوبية مناسبة.", "أن يشرح الفكرة العامة للشبكات العصبية؛ أن يربط التعلم العميق بتطبيقاته؛ أن يميز موقعه ضمن تعلم الآلة.","التعلم العميق جزء من تعلم الآلة، وتعلم الآلة جزء من الذكاء الاصطناعي.","تستخدم بعض أنظمة التعرف على الكلام نماذج تعلم عميق لتحويل الصوت إلى نص."]]},
-{title:"الوحدة الخامسة: الذكاء الاصطناعي في حياتنا",desc:"استخدم الأدوات الذكية بوعي، وتعرف على الأخلاقيات والخصوصية ومستقبل التكنولوجيا.",color:"v5",icon:"🚀",lessons:[
-["الذكاء الاصطناعي التوليدي","الذكاء الاصطناعي التوليدي نوع من الأنظمة القادرة على إنشاء محتوى جديد مثل النصوص والصور والأصوات اعتمادًا على الأنماط التي تعلمتها من بيانات التدريب. يحتاج الناتج إلى مراجعة وتحقق.", "أن يوضح مفهوم الذكاء الاصطناعي التوليدي؛ أن يذكر أمثلة؛ أن يراجع المخرجات.","قد ينتج النظام محتوى مقنعًا لكنه غير دقيق؛ لذلك لا بد من التحقق من المعلومات.","يمكن استخدام مساعد ذكي لاقتراح أفكار لموضوع بحث ثم التحقق من المصادر وكتابة العمل بأسلوب الطالب."],
-["المساعدات الذكية والروبوتات","تجمع المساعدات الذكية بين فهم الأوامر ومعالجة اللغة وتنفيذ خدمات، بينما تتفاعل الروبوتات مع العالم المادي عبر حساسات ومحركات وبرمجيات تحكم. قد تستخدم الروبوتات تقنيات ذكاء اصطناعي للتعرف واتخاذ قرارات.", "أن يميز بين المساعد الذكي والروبوت؛ أن يذكر مكونات الروبوت؛ أن يوضح أمثلة الاستخدام.","ليس كل روبوت ذكيًا، وليس كل نظام ذكاء اصطناعي روبوتًا ماديًا.","تستخدم بعض المستودعات روبوتات لنقل الصناديق وفق مسارات محددة."],
-["أخلاقيات الذكاء الاصطناعي والخصوصية","يتطلب الاستخدام المسؤول مراعاة الخصوصية والعدالة والشفافية والأمان. ينبغي عدم مشاركة كلمات المرور أو البيانات الحساسة، والتحقق من الإجابات، والانتباه إلى التحيز أو المعلومات المضللة.", "أن يحدد مبادئ الاستخدام المسؤول؛ أن يشرح حماية البيانات؛ أن يكتشف مخاطر التحيز والمعلومات الخاطئة.","استخدم الأدوات الذكية كمساعد، ولا تمنحها بياناتك الخاصة أو ثقتك المطلقة.","عند استخدام أداة تعليمية، لا ترفع معلومات شخصية ولا تعتمد على إجابة دون مراجعتها."],
-["مستقبل البرمجة والذكاء الاصطناعي","تتطور التقنيات بسرعة وتظهر مجالات جديدة في الأمن السيبراني والروبوتات وتحليل البيانات والتطبيقات الذكية. يحتاج المستقبل إلى مهارات التفكير النقدي والتعاون والإبداع والتعلم المستمر.", "أن يستشرف بعض التطبيقات المستقبلية؛ أن يحدد مهارات المستقبل؛ أن يقترح فكرة مشروع رقمي.","التكنولوجيا أداة، والإنسان هو من يحدد الهدف والقيمة وطريقة الاستخدام.","يمكن لفريق طلابي تصميم فكرة تطبيق يساعد على تنظيم المذاكرة أو ترشيد استهلاك الطاقة."]]}
+const units = [
+ {
+  title:"مدخل إلى عالم البرمجة",
+  icon:"💻",
+  description:"اكتشفي معنى البرمجة وأهميتها وكيفية حل المشكلات.",
+  lessons:[
+   ["مفهوم البرمجة","البرمجة هي عملية كتابة مجموعة من التعليمات والأوامر التي يفهمها الحاسوب وينفذها لتحقيق هدف معين. وتساعدنا على إنشاء البرامج والتطبيقات والألعاب والمواقع الإلكترونية."],
+   ["أهمية البرمجة في حياتنا","أصبحت البرمجة جزءًا أساسيًا من حياتنا اليومية؛ فهي تدخل في الهواتف الذكية والتعليم والطب والبنوك والمواصلات، وتساعد على توفير الوقت والجهد وحل المشكلات."],
+   ["لغات البرمجة","لغات البرمجة هي لغات نستخدمها لكتابة الأوامر التي ينفذها الحاسوب. ومن أمثلتها Python وJava وDart وJavaScript، ولكل لغة استخدامات ومميزات."],
+   ["خطوات حل المشكلة برمجياً","يبدأ حل المشكلة بفهمها وتحديد المطلوب، ثم تحليلها وتقسيمها إلى خطوات، وتصميم الحل، وكتابة البرنامج، واختباره وتصحيح الأخطاء."]
+  ]
+ },
+ {
+  title:"أساسيات التفكير الحاسوبي",
+  icon:"🧠",
+  description:"تعلمي التفكير المنطقي وتحليل المشكلات وبناء الخوارزميات.",
+  lessons:[
+   ["مفهوم التفكير الحاسوبي","التفكير الحاسوبي أسلوب منظم لحل المشكلات باستخدام مهارات مثل التجزئة والتعرف على الأنماط والتجريد وتصميم الخوارزميات."],
+   ["تجزئة المشكلات","تعني تقسيم المشكلة الكبيرة إلى مشكلات صغيرة يسهل فهمها والتعامل معها، مما يجعل الوصول إلى الحل أكثر سهولة وتنظيمًا."],
+   ["التعرف على الأنماط","هو البحث عن أوجه التشابه والتكرار بين المشكلات أو البيانات، والاستفادة من الحلول السابقة في حل مشكلات جديدة مشابهة."],
+   ["الخوارزميات ومخططات الانسياب","الخوارزمية هي مجموعة خطوات مرتبة لحل مشكلة. أما مخطط الانسياب فيمثل هذه الخطوات باستخدام رموز وأشكال توضح تسلسل التنفيذ."]
+  ]
+ },
+ {
+  title:"أساسيات البرمجة",
+  icon:"⌨️",
+  description:"تعرفي على المتغيرات والعمليات والجمل الشرطية والتكرار.",
+  lessons:[
+   ["المتغيرات وأنواع البيانات","المتغير مكان في الذاكرة نستخدمه لتخزين قيمة يمكن الرجوع إليها أثناء تنفيذ البرنامج. ومن أنواع البيانات الأعداد والنصوص والقيم المنطقية."],
+   ["عمليات الإدخال والإخراج","الإدخال هو استقبال البيانات من المستخدم، بينما الإخراج هو عرض النتائج أو المعلومات له. وتعد العمليتان من أساسيات التفاعل مع البرامج."],
+   ["الجمل الشرطية","تسمح الجمل الشرطية للبرنامج باتخاذ قرار بناءً على تحقق شرط معين. فإذا تحقق الشرط ينفذ البرنامج مجموعة تعليمات، وإذا لم يتحقق يمكن تنفيذ تعليمات أخرى."],
+   ["التكرار والحلقات","تستخدم الحلقات لتنفيذ مجموعة من التعليمات أكثر من مرة، وتساعد على تقليل تكرار كتابة الأوامر وتنظيم البرنامج."]
+  ]
+ },
+ {
+  title:"مدخل إلى الذكاء الاصطناعي",
+  icon:"🤖",
+  description:"اكتشفي مفهوم الذكاء الاصطناعي وتطبيقاته والتعلم الآلي.",
+  lessons:[
+   ["مفهوم الذكاء الاصطناعي","الذكاء الاصطناعي مجال من مجالات علوم الحاسوب يهدف إلى بناء أنظمة تستطيع تنفيذ مهام تتطلب عادةً قدرات بشرية مثل التعلم والتحليل والتعرف على الأنماط."],
+   ["تطور الذكاء الاصطناعي","مر الذكاء الاصطناعي بمراحل متعددة من الأبحاث والنماذج الأولية إلى الأنظمة الحديثة القادرة على معالجة البيانات والتفاعل مع المستخدمين."],
+   ["تطبيقات الذكاء الاصطناعي","يستخدم الذكاء الاصطناعي في الطب والتعليم والترجمة والمساعدات الذكية والتعرف على الصور والصوت وتحليل البيانات."],
+   ["التعلم الآلي","التعلم الآلي فرع من الذكاء الاصطناعي يمكّن الأنظمة من التعلم من البيانات واكتشاف الأنماط وتحسين أدائها دون برمجة كل خطوة بصورة مباشرة."]
+  ]
+ },
+ {
+  title:"الذكاء الاصطناعي والمستقبل",
+  icon:"🚀",
+  description:"تعرفي على مستقبل الذكاء الاصطناعي وأخلاقيات استخدامه.",
+  lessons:[
+   ["الذكاء الاصطناعي في التعليم","يساعد الذكاء الاصطناعي في تقديم تعلم مخصص للطلاب، وتوفير التغذية الراجعة، وإنشاء الأنشطة التعليمية، ودعم المعلم في متابعة تقدم المتعلمين."],
+   ["مساعدات الذكاء الاصطناعي","هي أدوات رقمية تتفاعل مع المستخدم وتساعده في البحث والكتابة والتلخيص والتخطيط والإجابة عن الأسئلة، مع ضرورة مراجعة المعلومات الناتجة."],
+   ["أخلاقيات الذكاء الاصطناعي","تتضمن أخلاقيات الذكاء الاصطناعي حماية الخصوصية والشفافية والعدالة والتحقق من صحة المعلومات وعدم استخدام التقنية للإضرار بالآخرين."]
+  ]
+ }
 ];
-let activeUnit=0,activeLesson=0,questionIndex=0,quizScore=0,gameQuestion=0;
-let completed=JSON.parse(localStorage.getItem("codeai_completed")||"[]");
-const icons=["💡","🧭","🧩","📊","⌨️","📦","🔢","🔁","🌍","🧱","🎨","🧠","🤖","📈","🕸️","✨","🛡️","🚀"];
-function enterSite(){document.getElementById("cover").classList.add("hidden");document.getElementById("site").classList.remove("hidden");showHome()}
-function showCover(){document.getElementById("site").classList.add("hidden");document.getElementById("cover").classList.remove("hidden");window.scrollTo(0,0)}
-function views(id){["homeView","lessonsView","lessonView","testView","achView","certView"].forEach(x=>document.getElementById(x).classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo(0,0)}
-function totalLessons(){return course.reduce((n,u)=>n+u.lessons.length,0)}
-function allCards(){document.getElementById("unitCards").innerHTML=course.map((u,i)=>`<div class="unit" onclick="showLessons(${i})"><div class="unitvisual ${u.color}">${art(i)}</div><div class="unitbody"><small>الوحدة ${["الأولى","الثانية","الثالثة","الرابعة","الخامسة"][i]}</small><h3>${u.title}</h3><p>${u.desc}</p><div class="unitfoot"><span>📚 ${u.lessons.length} دروس</span><span>استكشف ←</span></div></div></div>`).join("");updateProgress()}
-function art(i){let arr=[`<svg viewBox="0 0 180 140"><rect x="38" y="15" width="104" height="110" rx="16" fill="white"/><path d="M62 45h55M62 65h40M62 85h55" stroke="#3977ed" stroke-width="7" stroke-linecap="round"/><circle cx="126" cy="103" r="12" fill="#20b9c7"/></svg>`,`<svg viewBox="0 0 180 140"><path d="M90 14 147 47v54l-57 29-57-29V47z" fill="#fff"/><path d="M90 14v62L33 47z" fill="#80dacc"/><path d="m90 76 57-29v54l-57 29z" fill="#588af0"/><text x="90" y="69" text-anchor="middle" fill="#233" font-size="20" font-weight="bold">if</text></svg>`,`<svg viewBox="0 0 180 140"><rect x="37" y="25" width="106" height="85" rx="15" fill="#fff"/><rect x="49" y="38" width="82" height="13" rx="5" fill="#9c8af0"/><rect x="49" y="60" width="54" height="8" rx="4" fill="#77cfc8"/><rect x="49" y="77" width="70" height="8" rx="4" fill="#77a2f5"/></svg>`,`<svg viewBox="0 0 180 140"><circle cx="90" cy="70" r="50" fill="#fff"/><rect x="60" y="42" width="60" height="56" rx="18" fill="#8067db"/><circle cx="77" cy="63" r="5" fill="white"/><circle cx="103" cy="63" r="5" fill="white"/><path d="M76 81q14 13 28 0" stroke="white" stroke-width="4" fill="none"/></svg>`,`<svg viewBox="0 0 180 140"><circle cx="90" cy="70" r="43" fill="#fff"/><path d="M90 25v-12M90 127v-12M45 70H32M148 70h-13M58 38l-9-9M131 111l-9-9" stroke="#20a89f" stroke-width="5" stroke-linecap="round"/><path d="M73 70l12 12 24-29" fill="none" stroke="#3977ed" stroke-width="8" stroke-linecap="round"/></svg>`];return arr[i]}
-function updateProgress(){let n=completed.length,p=Math.round(n/18*100);document.getElementById("progressText").textContent=`أكملتِ ${n} من 18 درساً`;document.getElementById("progressPercent").textContent=p+"%";document.getElementById("progressBar").style.width=p+"%"}
-function showHome(){views("homeView");allCards();document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));document.getElementById("navHome").classList.add("active")}
-function showLessons(i){activeUnit=i;let u=course[i];document.getElementById("unitLabel").textContent=`الوحدة ${["الأولى","الثانية","الثالثة","الرابعة","الخامسة"][i]}`;document.getElementById("unitTitle").textContent=u.title;document.getElementById("unitDescription").textContent=u.desc;document.getElementById("lessonCards").innerHTML=u.lessons.map((l,j)=>{let id=i+"-"+j;return `<div class="lesson" onclick="showLesson(${i},${j})"><div class="lessonpic">${icons[course.slice(0,i).reduce((a,x)=>a+x.lessons.length,0)+j]}</div><div><h3>${l[0]}</h3><p>${l[1].slice(0,100)}...</p><small>${completed.includes(id)?"✓ درس مكتمل":"افتح الدرس ←"}</small></div></div>`}).join("");views("lessonsView")}
-function showLesson(i,j){activeUnit=i;activeLesson=j;let l=course[i].lessons[j];document.getElementById("lessonLabel").textContent=course[i].title;document.getElementById("lessonTitle").textContent=l[0];document.getElementById("objectiveList").innerHTML=l[2].split("؛").map(x=>`<li>✓ ${x}</li>`).join("");let video="https://www.youtube.com/results?search_query="+encodeURIComponent(l[0]+" شرح مبسط بالعربي");document.getElementById("lessonArticle").innerHTML=`<h2>📘 شرح الدرس</h2><p>${l[1]}</p><h3>كيف نفهم الفكرة؟</h3><p>${l[1]} ويمكن تطبيق هذه الفكرة من خلال ملاحظة المشكلة أولًا، ثم تحديد المعلومات المطلوبة، واختيار الطريقة المناسبة للوصول إلى الحل.</p><h3>💡 مثال من الحياة اليومية</h3><p>${l[4]}</p><div class="remember"><b>💡 تذكر دائماً</b><br>${l[3]}</div><h3>🎬 شاهد وتعلم</h3><p>يمكنك مشاهدة شرح إضافي للدرس على يوتيوب.</p><div class="video"><span>▶ فيديو تعليمي مرتبط بموضوع الدرس</span><a href="${video}" target="_blank" rel="noopener">مشاهدة الفيديو التعليمي ↗</a></div><div class="gamebox"><h3>🎮 اختبر معلوماتك باللعبة</h3><p class="question" id="gameQ"></p><div class="options" id="gameOptions"></div><div class="feedback" id="gameFeedback"></div><button class="btn alt" onclick="newGameQuestion()">سؤال جديد</button></div>`;newGameQuestion();views("lessonView")}
-function buildQuestions(){let l=course[activeUnit].lessons[activeLesson];let title=l[0];return [
-["ما الموضوع الرئيسي الذي يتناوله هذا الدرس؟",[title,"تصميم الأجهزة فقط","استخدام الطابعة"],0],
-["ما الهدف من دراسة هذا الموضوع؟",["فهم المفهوم وتطبيقه","حفظ الاسم دون فهم","تجنب استخدام التكنولوجيا"],0],
-["أي عبارة تصف الفكرة بصورة صحيحة؟",[l[3],"لا يحتاج الموضوع إلى تعلم","لا توجد له تطبيقات"],0],
-["أين يمكن أن نلاحظ تطبيقًا لهذه الفكرة؟",[l[4],"في شيء لا يرتبط بالتقنية","لا يمكن تطبيقها"],0],
-["ما الخطوة الأفضل عند مواجهة مشكلة؟",["فهم المشكلة وتحديد المطلوب","اختيار حل عشوائي","تجاهل البيانات"],0],
-["ما فائدة الأمثلة العملية؟",["ربط المفهوم بالحياة اليومية","زيادة صعوبة التعلم","استبدال الفهم بالتخمين"],0],
-["أي مهارة يساعد هذا الدرس على تنميتها؟",["التفكير المنطقي وحل المشكلات","الاعتماد على الحفظ فقط","تجنب التجربة"],0],
-["ماذا نفعل إذا لم نفهم نقطة في الدرس؟",["نراجع الشرح ونبحث عن مثال","نتوقف عن المحاولة","نختار إجابة عشوائية"],0],
-["كيف نتحقق من فهمنا؟",["نطبق الفكرة ونجيب عن الأسئلة","نغلق الدرس مباشرة","نتجاهل النتيجة"],0],
-["ما أفضل وصف للمتعلم النشط؟",["يسأل ويجرب ويتحقق","ينسخ دون فهم","يتجنب المشاركة"],0]
-]}
-function newGameQuestion(){let qs=buildQuestions(),q=qs[Math.floor(Math.random()*qs.length)];gameQuestion=q;document.getElementById("gameQ").textContent=q[0];document.getElementById("gameOptions").innerHTML=q[1].map((a,i)=>`<button class="option" onclick="gameAnswer(${i})">${a}</button>`).join("");document.getElementById("gameFeedback").textContent=""}
-function gameAnswer(i){let q=gameQuestion,buttons=[...document.querySelectorAll("#gameOptions .option")];buttons.forEach((b,j)=>{b.disabled=true;if(j===q[2])b.classList.add("good");if(j===i&&i!==q[2])b.classList.add("bad")});document.getElementById("gameFeedback").textContent=i===q[2]?"رائع! إجابة صحيحة 👏":"محاولة جيدة! راجع الشرح ثم جرّب سؤالًا جديدًا 💪"}
-function completeLesson(){let id=activeUnit+"-"+activeLesson;if(!completed.includes(id)){completed.push(id);localStorage.setItem("codeai_completed",JSON.stringify(completed));toast("تم تسجيل إتمام الدرس بنجاح 🎉")}else toast("هذا الدرس مسجل بالفعل ضمن إنجازاتك");updateProgress()}
-function startTest(){questionIndex=0;quizScore=0;renderTestQuestion();views("testView")}
-function renderTestQuestion(){let qs=buildQuestions(),q=qs[questionIndex];document.getElementById("testCounter").textContent=`اختبار تفاعلي السؤال ${questionIndex+1} من 10`;document.getElementById("testBox").innerHTML=`<h3>السؤال ${questionIndex+1} من 10</h3><div class="question">${q[0]}</div><div class="options">${q[1].map((a,i)=>`<button class="option" onclick="testAnswer(${i})">${["أ","ب","ج"][i]}. ${a}</button>`).join("")}</div><div class="feedback" id="testFeedback"></div><div id="testNext"></div>`}
-function testAnswer(i){let q=buildQuestions()[questionIndex],bs=[...document.querySelectorAll("#testBox .option")];bs.forEach((b,j)=>{b.disabled=true;if(j===q[2])b.classList.add("good");if(j===i&&i!==q[2])b.classList.add("bad")});if(i===q[2])quizScore++;document.getElementById("testFeedback").textContent=i===q[2]?"أحسنتِ! إجابة صحيحة 🌟":"لا بأس، التعلم بالمحاولة والاستمرار 💙";document.getElementById("testNext").innerHTML=`<button class="btn" style="margin-top:10px" onclick="nextTest()">${questionIndex===9?"عرض النتيجة":"السؤال التالي ←"}</button>`}
-function nextTest(){if(questionIndex<9){questionIndex++;renderTestQuestion()}else{document.getElementById("testBox").innerHTML=`<h2>انتهى الاختبار 🎉</h2><p>نتيجتك: <b style="color:var(--blue);font-size:25px">${quizScore} / 10</b></p><p>${quizScore>=8?"ممتاز! أداء رائع.":quizScore>=5?"أحسنتِ، واصلي المراجعة والتقدم.":"لا تستسلمي، راجعي الدرس وحاولي مرة أخرى."}</p><button class="btn" onclick="showLesson(activeUnit,activeLesson)">العودة إلى الدرس</button>`}}
-function showAchievements(){views("achView");let n=completed.length,p=Math.round(n/18*100);document.getElementById("doneCount").textContent=n+" / 18";document.getElementById("doneMessage").textContent=n===0?"ابدئي أول درس لتحققي إنجازك الأول.":n===18?"أكملتِ جميع الدروس! تستحقين شهادة التقدير.":`أكملتِ ${n} درسًا. استمري حتى تصلي إلى الشهادة!`;document.getElementById("achBar").style.width=p+"%";let lock=document.getElementById("certLock");if(n===18){lock.classList.remove("locked");lock.innerHTML=`<div style="font-size:30px">🏆</div><h3>شهادة إتمام المنهج</h3><p>تهانينا! أتممتِ الدروس الثمانية عشر ويمكنك الآن عرض شهادة التقدير.</p><button class="btn" onclick="showCertificate()">عرض شهادة التقدير</button>`}else{lock.classList.add("locked");lock.innerHTML=`<div style="font-size:30px">🔒</div><h3>شهادة إتمام المنهج</h3><p>أكملي جميع الدروس الثمانية عشر للحصول على شهادتك.</p><button class="btn alt" disabled>عرض شهادة التقدير</button>`}document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));document.getElementById("navAch").classList.add("active")}
-function showCertificate(){if(completed.length<18){toast("أكملي جميع الدروس أولًا");return}document.getElementById("certificateName").textContent="حبيبه حماده محمد عفيفي";document.getElementById("certDate").textContent="التاريخ: "+new Date().toLocaleDateString("ar-EG");views("certView")}
-function toast(t){let el=document.getElementById("toast");el.textContent=t;el.style.display="block";setTimeout(()=>el.style.display="none",2400)}
-allCards();
+
+let student = {name:"",grade:""};
+let completed = JSON.parse(localStorage.getItem("completedLessons") || "[]");
+let current = {unit:0,lesson:0};
+let quizState = null;
+let finalExamQuestions = [];
+let finalExamFinished = false;
+let finalExamScore = 0;
+
+function totalLessons(){
+ return units.reduce((sum,u)=>sum+u.lessons.length,0);
+}
+function lessonId(i,j){return i+"-"+j;}
+function doneCount(){return completed.length;}
+function progress(){
+ return Math.round(doneCount()/totalLessons()*100);
+}
+function saveProgress(){
+ localStorage.setItem("completedLessons",JSON.stringify(completed));
+}
+function enterSite(){
+ const name=document.getElementById("studentName").value.trim();
+ const grade=document.getElementById("studentGrade").value.trim();
+ if(!name || !grade){
+  alert("من فضلك اكتبي اسم الطالب والصف الدراسي أولاً.");
+  return;
+ }
+ student={name,grade};
+ localStorage.setItem("studentInfo",JSON.stringify(student));
+ document.getElementById("cover").classList.add("hidden");
+ document.getElementById("header").classList.remove("hidden");
+ document.getElementById("app").classList.remove("hidden");
+ document.getElementById("footer").classList.remove("hidden");
+ showHome();
+}
+function showHome(){
+ const percentage=progress();
+ document.getElementById("view").innerHTML=`
+  <section class="welcome">
+   <h1>أهلاً بك يا ${student.name} 👋</h1>
+   <p>استعد لاكتشاف عالم البرمجة والذكاء الاصطناعي خطوة بخطوة.</p>
+   <p style="margin-top:8px">الصف الدراسي: ${student.grade}</p>
+  </section>
+
+  <div class="stats">
+   <div class="stat"><span class="stat-icon">📚</span><strong>${totalLessons()}</strong><small>إجمالي الدروس</small></div>
+   <div class="stat"><span class="stat-icon">✅</span><strong>${doneCount()}</strong><small>الدروس المكتملة</small></div>
+   <div class="stat"><span class="stat-icon">🎯</span><strong>${percentage}%</strong><small>نسبة التقدم</small></div>
+  </div>
+
+  <div class="progress-box">
+   <div class="progress-top"><strong>رحلتك التعليمية</strong><strong>${percentage}%</strong></div>
+   <div class="progress-track"><div class="progress-fill" style="width:${percentage}%"></div></div>
+   <p style="font-size:13px;color:#77849a">كل درس تنهيه يقربك من إتمام رحلتك التعليمية.</p>
+  </div>
+
+  <div class="section-title"><h2>📚 الوحدات التعليمية</h2></div>
+  <div class="units">
+   ${units.map((u,i)=>{
+    const count=u.lessons.filter((l,j)=>completed.includes(lessonId(i,j))).length;
+    const pct=Math.round(count/u.lessons.length*100);
+    return `
+     <div class="unit-card" onclick="showUnit(${i})">
+      <div class="unit-number">${u.icon}</div>
+      <h3>الوحدة ${i+1}: ${u.title}</h3>
+      <p>${u.description}</p>
+      <p>${count} من ${u.lessons.length} دروس مكتملة</p>
+      <div class="unit-progress"><div style="width:${pct}%"></div></div>
+     </div>`;
+   }).join("")}
+  </div>
+
+  <div class="section-title"><h2>🏆 الاختبار الشامل</h2></div>
+  <div class="progress-box">
+   <p>بعد الانتهاء من جميع الدروس، يمكنك خوض الاختبار الشامل للحصول على شهادة إتمام الرحلة التعليمية.</p>
+   <button class="btn ${doneCount()===totalLessons()?"primary":"soft"}" onclick="startFinalExam()" ${doneCount()!==totalLessons()?"disabled":""}>
+    ${doneCount()===totalLessons()?"ابدأ الاختبار الشامل":"أكملي جميع الدروس أولاً"}
+   </button>
+  </div>
+ `;
+ window.scrollTo(0,0);
+}
+function showUnit(i){
+ current.unit=i;
+ const u=units[i];
+ document.getElementById("view").innerHTML=`
+  <div class="breadcrumb"><button class="btn soft" onclick="showHome()">← الرئيسية</button></div>
+  <div class="welcome">
+   <h1>${u.icon} الوحدة ${i+1}: ${u.title}</h1>
+   <p>${u.description}</p>
+  </div>
+  <div class="section-title"><h2>دروس الوحدة</h2><span>${u.lessons.length} دروس</span></div>
+  <div class="lesson-list">
+   ${u.lessons.map((lesson,j)=>{
+    const isDone=completed.includes(lessonId(i,j));
+    return `
+     <div class="lesson-card" onclick="showLesson(${i},${j})">
+      <h3>${isDone?"✅":"📘"} الدرس ${j+1}: ${lesson[0]}</h3>
+      <p>اضغط لفتح شرح الدرس وأهدافه والاختبار التفاعلي.</p>
+      <div class="lesson-status">${isDone?"تم إتمام الدرس":"ابدأ التعلم ←"}</div>
+     </div>`;
+   }).join("")}
+  </div>
+ `;
+ window.scrollTo(0,0);
+}
+function showLesson(i,j){
+ current={unit:i,lesson:j};
+ const lesson=units[i].lessons[j];
+ document.getElementById("view").innerHTML=`
+  <div class="breadcrumb"><button class="btn soft" onclick="showUnit(${i})">← العودة إلى الوحدة</button></div>
+  <article>
+   <div class="eyebrow">📘 الوحدة ${i+1} · الدرس ${j+1}</div>
+   <h1>${lesson[0]}</h1>
+   <div class="info-box objectives">
+    <h3>🎯 أهداف الدرس</h3>
+    <p>• أن تتعرف على ${lesson[0]}.</p>
+    <p>• أن تشرح أهميته واستخداماته.</p>
+    <p>• أن تربط ما تعلمته بالتطبيقات اليومية.</p>
+   </div>
+   <div class="info-box">
+    <h3>📖 شرح الدرس</h3>
+    <p>${lesson[1]}</p>
+   </div>
+   <div class="info-box remember">
+    <h3>💡 تذكّر دائماً</h3>
+    <p>الفهم والتجربة والممارسة المستمرة هي أفضل طريق للتعلم. لا تتوقف عن طرح الأسئلة والمحاولة.</p>
+   </div>
+   <div class="info-box video">
+    <h3>🎬 شاهِد وتعلّم</h3>
+    <p>يمكنك البحث عن فيديو إضافي لشرح هذا الموضوع.</p>
+    <a target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent(lesson[0]+" شرح")}">▶ البحث عن شرح على يوتيوب</a>
+   </div>
+   <div class="info-box">
+    <h3>📝 اختبر معلوماتك</h3>
+    <p>أجب عن خمسة أسئلة اختيار من متعدد لمعرفة مدى فهمك للدرس.</p>
+    <button class="btn primary" onclick="showQuiz()">ابدأ اختبار الدرس</button>
+   </div>
+   <div class="actions">
+    <button class="btn success" onclick="completeLesson()">✓ إتمام الدرس</button>
+    <button class="btn soft" onclick="showUnit(${i})">العودة إلى الدروس</button>
+   </div>
+  </article>
+ `;
+ window.scrollTo(0,0);
+}
+function makeLessonQuestions(i,j){
+ const title=units[i].lessons[j][0];
+ const descriptions=[
+  ["ما أفضل وصف لموضوع هذا الدرس؟",`فهم ${title} واستخداماته`,"إيقاف جميع الأجهزة","الرسم دون هدف"],
+  ["لماذا نتعلم هذا الموضوع؟",`لزيادة المعرفة والقدرة على التطبيق في ${title}`,"لمنع استخدام التكنولوجيا","للاستغناء عن التفكير"],
+  ["ما السلوك الأفضل عند تعلم هذا الموضوع؟","الفهم والتجربة والتطبيق","حفظ الكلمات دون فهم","تجاهل الأمثلة"],
+  ["إذا واجهت مشكلة أثناء التطبيق، ماذا تفعل؟","أحلل المشكلة وأحاول الوصول إلى حل","أتوقف عن التعلم نهائياً","أتجاهل المشكلة"],
+  ["ما أفضل طريقة لإتقان هذا الدرس؟","الممارسة والمراجعة المستمرة","عدم التدريب","الاعتماد على التخمين"]
+ ];
+ return descriptions.map((q,k)=>({
+  question:q[0],
+  options:[q[1],q[2],q[3]],
+  answer:0,
+  explanation:k===0?`الإجابة الصحيحة ترتبط بفهم ${title} وتطبيقه.`:"التعلم الجيد يعتمد على الفهم والتحليل والتدريب."
+ }));
+}
+function showQuiz(){
+ const questions=makeLessonQuestions(current.unit,current.lesson);
+ quizState={questions:questions,submitted:false};
+ renderQuiz();
+}
+function renderQuiz(){
+ const questions=quizState.questions;
+ document.getElementById("view").innerHTML=`
+  <div class="breadcrumb"><button class="btn soft" onclick="showLesson(${current.unit},${current.lesson})">← العودة للدرس</button></div>
+  <article>
+   <div class="eyebrow">📝 اختبار تفاعلي</div>
+   <h1>اختبار: ${units[current.unit].lessons[current.lesson][0]}</h1>
+   <p>اختاري الإجابة الصحيحة لكل سؤال.</p>
+   <div id="questionsArea">
+    ${questions.map((q,i)=>`
+     <div class="quiz-question">
+      <h3>${i+1}. ${q.question}</h3>
+      ${q.options.map((o,k)=>`
+       <label class="option">
+        <input type="radio" name="q${i}" value="${k}" ${quizState.submitted?"disabled":""}>
+        <span>${o}</span>
+       </label>
+      `).join("")}
+      <div class="feedback" id="feedback${i}"></div>
+     </div>
+    `).join("")}
+   </div>
+   ${quizState.submitted?`<div class="result-card"><div class="result-score">${quizState.score}/5</div><h2>${quizState.score>=3?"أحسنت! أداء رائع 🌟":"لا تستسلم! يمكنك المحاولة والتعلم 💙"}</h2><p>نتمنى لك المزيد من النجاح والتقدم.</p><button class="btn primary" onclick="showLesson(${current.unit},${current.lesson})">العودة إلى الدرس</button></div>`:
+   `<button class="btn primary full" onclick="checkLessonQuiz()">تصحيح الإجابات</button>`}
+  </article>
+ `;
+ window.scrollTo(0,0);
+}
+function checkLessonQuiz(){
+ const questions=quizState.questions;
+ let score=0;
+ let missing=false;
+ const answers=[];
+ for(let i=0;i<questions.length;i++){
+  const selected=document.querySelector(`input[name="q${i}"]:checked`);
+  if(!selected){missing=true;continue;}
+  const value=Number(selected.value);
+  answers.push(value);
+  if(value===questions[i].answer)score++;
+ }
+ if(missing){
+  alert("من فضلك أجب عن جميع الأسئلة قبل التصحيح.");
+  return;
+ }
+ quizState.submitted=true;
+ quizState.score=score;
+ renderQuiz();
+ for(let i=0;i<questions.length;i++){
+  const correct=answers[i]===questions[i].answer;
+  const feedback=document.getElementById("feedback"+i);
+  feedback.textContent=correct?"👏 إجابة صحيحة! أحسنت، استمر في التقدم.":"💪 إجابة غير صحيحة، لا تستسلم! راجع الشرح وحاول الاستفادة من الخطأ.";
+  feedback.style.color=correct?"#16835b":"#c34d5a";
+ }
+}
+function completeLesson(){
+ const id=lessonId(current.unit,current.lesson);
+ if(!completed.includes(id)){
+  completed.push(id);
+  saveProgress();
+ }
+ showUnit(current.unit);
+}
+function allQuestions(){
+ let result=[];
+ units.forEach((u,i)=>{
+  u.lessons.forEach((lesson,j)=>{
+   makeLessonQuestions(i,j).forEach(q=>{
+    result.push({question:q.question,options:q.options,answer:q.answer});
+   });
+  });
+ });
+ return result;
+}
+function startFinalExam(){
+ if(doneCount()!==totalLessons()){
+  alert("يجب إتمام جميع الدروس أولاً.");
+  return;
+ }
+ finalExamQuestions=allQuestions();
+ finalExamFinished=false;
+ finalExamScore=0;
+ renderFinalExam();
+}
+function renderFinalExam(){
+ document.getElementById("view").innerHTML=`
+  <div class="breadcrumb"><button class="btn soft" onclick="showHome()">← الرئيسية</button></div>
+  <article>
+   <div class="eyebrow">🏆 الاختبار الشامل</div>
+   <h1>اختبر حصيلتك التعليمية</h1>
+   <p>يتضمن الاختبار الشامل أسئلة من جميع الوحدات التعليمية.</p>
+   ${finalExamQuestions.map((q,i)=>`
+    <div class="quiz-question">
+     <h3>${i+1}. ${q.question}</h3>
+     ${q.options.map((o,k)=>`
+      <label class="option">
+       <input type="radio" name="final${i}" value="${k}" ${finalExamFinished?"disabled":""}>
+       <span>${o}</span>
+      </label>
+     `).join("")}
+     <div class="feedback" id="finalFeedback${i}"></div>
+    </div>
+   `).join("")}
+   ${finalExamFinished?`
+    <div class="result-card">
+     <div class="result-score">${finalExamScore}/${finalExamQuestions.length}</div>
+     <h2>${finalExamScore>=Math.ceil(finalExamQuestions.length*.6)?"مبروك! لقد أتممت الاختبار الشامل 🎉":"محاولة جيدة! راجع دروسك وواصل التعلم 💙"}</h2>
+     <p>درجتك النهائية في الاختبار الشامل.</p>
+     ${finalExamScore>=Math.ceil(finalExamQuestions.length*.6)?`<button class="btn primary" onclick="showCertificate()">عرض الشهادة</button>`:""}
+    </div>
+   `:`<button class="btn primary full" onclick="checkFinalExam()">إنهاء الاختبار وعرض النتيجة</button>`}
+  </article>
+ `;
+ window.scrollTo(0,0);
+}
+function checkFinalExam(){
+ let score=0,missing=false;
+ const answers=[];
+ finalExamQuestions.forEach((q,i)=>{
+  const selected=document.querySelector(`input[name="final${i}"]:checked`);
+  if(!selected){missing=true;return;}
+  const value=Number(selected.value);
+  answers.push(value);
+  if(value===q.answer)score++;
+ });
+ if(missing){
+  alert("أجب عن جميع أسئلة الاختبار الشامل أولاً.");
+  return;
+ }
+ finalExamScore=score;
+ finalExamFinished=true;
+ localStorage.setItem("finalExamScore",String(score));
+ localStorage.setItem("finalExamFinished","true");
+ renderFinalExam();
+ answers.forEach((a,i)=>{
+  const correct=a===finalExamQuestions[i].answer;
+  const el=document.getElementById("finalFeedback"+i);
+  el.textContent=correct?"✓ إجابة صحيحة":"✗ إجابة غير صحيحة";
+  el.style.color=correct?"#16835b":"#c34d5a";
+ });
+}
+function showAchievements(){
+ const pct=progress();
+ const badges=[
+  ["🌱","بداية الرحلة","إتمام أول درس",doneCount()>=1],
+  ["📚","محب التعلم","إتمام خمسة دروس",doneCount()>=5],
+  ["🔥","متعلم نشيط","إتمام نصف الدروس",doneCount()>=Math.ceil(totalLessons()/2)],
+  ["🏅","إنجاز كبير","إتمام جميع الدروس",doneCount()===totalLessons()],
+  ["🏆","بطل المعرفة","اجتياز الاختبار الشامل",localStorage.getItem("finalExamFinished")==="true" && Number(localStorage.getItem("finalExamScore")||0)>=Math.ceil(totalLessons()*5*.6)]
+ ];
+ document.getElementById("view").innerHTML=`
+  <div class="section-title"><h2>🏆 إنجازاتي التعليمية</h2></div>
+  <div class="progress-box">
+   <h3>أحسنت يا ${student.name}!</h3>
+   <p>لقد أكملت ${doneCount()} من أصل ${totalLessons()} درسًا.</p>
+   <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+  </div>
+  <div class="achievement-grid">
+   ${badges.map(b=>`
+    <div class="achievement" style="opacity:${b[3]?1:.45}">
+     <span>${b[0]}</span><h3>${b[1]}</h3>
+     <p>${b[2]}</p>
+     <strong style="color:${b[3]?"#21966b":"#9aa3b1"}">${b[3]?"تم الحصول عليها":"لم تُفتح بعد"}</strong>
+    </div>
+   `).join("")}
+  </div>
+ `;
+ window.scrollTo(0,0);
+}
+function showCertificate(){
+ const passed=localStorage.getItem("finalExamFinished")==="true" &&
+ Number(localStorage.getItem("finalExamScore")||0)>=Math.ceil(totalLessons()*5*.6);
+ if(!passed){
+  document.getElementById("view").innerHTML=`
+   <div class="empty">
+    <div style="font-size:45px">🎓</div>
+    <h2>شهادتك في انتظارك!</h2>
+    <p>أكملي جميع الدروس واجتازي الاختبار الشامل بنسبة 60% على الأقل للحصول على شهادة الإتمام.</p>
+    <button class="btn primary" onclick="showHome()">العودة للرئيسية</button>
+   </div>
+  `;
+  return;
+ }
+ document.getElementById("view").innerHTML=`
+  <div class="breadcrumb no-print"><button class="btn soft" onclick="showHome()">← الرئيسية</button></div>
+  <div class="certificate">
+   <div style="font-size:45px">🎓</div>
+   <h1>شهادة إتمام</h1>
+   <h2 style="color:#52617b">البرمجة والذكاء الاصطناعي</h2>
+   <p>تشهد المنصة التعليمية بأن الطالب/ة</p>
+   <div class="student-name">${student.name}</div>
+   <p>قد أتم/ت الدروس التعليمية واجتاز/ت الاختبار الشامل بنجاح.</p>
+   <p><strong>الصف الدراسي:</strong> ${student.grade}</p>
+   <p><strong>الدرجة:</strong> ${localStorage.getItem("finalExamScore")} من ${totalLessons()*5}</p>
+   <div class="certificate-footer">
+    <div><strong>إعداد الطالبة</strong><br>حبيبة حماده محمد عفيفي</div>
+    <div><strong>تحت إشراف</strong><br>د. أرشد</div>
+   </div>
+   <p style="margin-top:30px;color:#a48a4c">كلية التربية النوعية - جامعة المنوفية</p>
+  </div>
+  <div class="no-print" style="text-align:center;margin:20px">
+   <button class="btn primary" onclick="window.print()">🖨️ طباعة الشهادة</button>
+  </div>
+ `;
+ window.scrollTo(0,0);
+}
+window.addEventListener("load",()=>{
+ const saved=localStorage.getItem("studentInfo");
+ if(saved){
+  try{
+   student=JSON.parse(saved);
+   document.getElementById("studentName").value=student.name||"";
+   document.getElementById("studentGrade").value=student.grade||"";
+  }catch(e){}
+ }
+});
 </script>
-</body></html>
+</body>
+</html>
